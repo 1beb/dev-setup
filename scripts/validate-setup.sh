@@ -52,19 +52,6 @@ check_file() {
     fi
 }
 
-check_service() {
-    local service=$1
-    local description=$2
-
-    if systemctl --user is-active "$service" &>/dev/null; then
-        echo "✓ $description: RUNNING"
-        ((PASSED++))
-    else
-        echo "✗ $description: NOT RUNNING"
-        ((FAILED++))
-    fi
-}
-
 echo "Checking commands..."
 check_command git "Git"
 check_command docker "Docker"
@@ -96,13 +83,6 @@ check_file "$HOME/.ssh/config" "SSH config" "600"
 check_file "$HOME/.aws/credentials" "AWS credentials" "600"
 check_file "$HOME/.Rprofile" "R profile" "644"
 check_file "$HOME/.env" "Environment file" "600"
-echo ""
-
-echo "Checking systemd services..."
-check_service voicemode-kokoro "VoiceMode Kokoro"
-check_service voicemode-whisper "VoiceMode Whisper"
-check_service ydotoold "ydotoold"
-check_service docker "Docker (rootless)"
 echo ""
 
 echo "=== Validation Summary ==="

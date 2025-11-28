@@ -219,12 +219,7 @@ phase_secrets() {
 }
 
 phase_services() {
-    echo "Setting up services and autostart..."
-
-    # Setup systemd services
-    if [ -f systemd/enable-services.sh ]; then
-        ./systemd/enable-services.sh
-    fi
+    echo "Setting up autostart applications..."
 
     # Setup autostart applications
     if [ -f autostart/setup-autostart.sh ]; then
