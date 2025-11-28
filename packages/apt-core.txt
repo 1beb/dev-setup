@@ -1,0 +1,18 @@
+# Core system packages
+build-essential
+git
+curl
+wget
+vim
+tmux
+htop
+jq
+ca-certificates
+gnupg
+software-properties-common
+apt-transport-https
+unzip
+zip
+tree
+net-tools
+dnsutils

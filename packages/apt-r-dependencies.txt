@@ -1,0 +1,32 @@
+# Core compilation tools
+build-essential
+gfortran
+cmake
+
+# R package compilation dependencies
+libxml2-dev
+libcurl4-openssl-dev
+libssl-dev
+libfontconfig1-dev
+libharfbuzz-dev
+libfribidi-dev
+libfreetype-dev
+libpng-dev
+libtiff-dev
+libjpeg-dev
+libbz2-dev
+liblzma-dev
+libpcre2-dev
+libreadline-dev
+libssh2-1-dev
+libpq-dev
+libgit2-dev
+libcairo2-dev
+libmagick++-dev
+libv8-dev
+libgdal-dev
+libgeos-dev
+libproj-dev
+libudunits2-dev
+libsodium-dev
+libzmq3-dev

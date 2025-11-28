@@ -1,0 +1,13 @@
+# Development tools
+docker-ce
+docker-ce-cli
+docker-compose-plugin
+awscli
+gh
+python3
+python3-pip
+python3-venv
+r-base
+r-base-dev
+ydotool
+chromium-browser
