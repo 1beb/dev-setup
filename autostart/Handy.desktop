@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=Handy
-Exec=/usr/bin/handy
-Type=Application
-Categories=Utility;
-X-GNOME-Autostart-enabled=true

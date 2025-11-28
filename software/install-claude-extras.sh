@@ -11,25 +11,23 @@ if ! command -v claude &> /dev/null; then
     exit 1
 fi
 
-# Install voicemode
+# Install voicemode using uvx (recommended method)
 echo "Installing voicemode..."
-if ! command -v voicemode &> /dev/null; then
-    pip install voicemode
-    echo "✓ voicemode installed"
-else
-    echo "✓ voicemode already installed"
+if ! command -v uv &> /dev/null; then
+    echo "Installing uv..."
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    source "$HOME/.local/bin/env" 2>/dev/null || true
 fi
+
+# Run the voice-mode installer which handles dependencies and setup
+uvx voice-mode-install
+echo "✓ voicemode installed"
 echo ""
 
-# Install voicemode services (Whisper and Kokoro)
-echo "Installing Whisper service..."
-voicemode whisper install
-echo "✓ Whisper installed"
-echo ""
-
-echo "Installing Kokoro service..."
-voicemode kokoro install
-echo "✓ Kokoro installed"
+# Add voicemode MCP to Claude
+echo "Adding voicemode MCP to Claude..."
+claude mcp add --scope user voicemode -- uvx --refresh voice-mode 2>/dev/null || true
+echo "✓ voicemode MCP configured"
 echo ""
 
 # Configure voicemode.env with Tailscale URLs for primary computer
@@ -78,5 +76,6 @@ echo "=== Claude Code Extras Installation Complete ==="
 echo ""
 echo "Notes:"
 echo "  - Voicemode is configured to use primary computer ($PRIMARY_COMPUTER_IP) for TTS/STT"
-echo "  - To use local services instead, run: voicemode whisper start && voicemode kokoro start"
-echo "  - To test: claude --voice"
+echo "  - To install local services: voicemode whisper install && voicemode kokoro install"
+echo "  - To start local services: voicemode whisper start && voicemode kokoro start"
+echo "  - To test: claude converse"

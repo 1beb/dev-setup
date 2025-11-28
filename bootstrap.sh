@@ -176,11 +176,6 @@ phase_applications() {
         ./software/install-productivity.sh
     fi
 
-    # Install Handy
-    if [ -f software/install-handy.sh ]; then
-        ./software/install-handy.sh
-    fi
-
     # Install pCloud
     if [ -f software/install-pcloud.sh ]; then
         ./software/install-pcloud.sh
