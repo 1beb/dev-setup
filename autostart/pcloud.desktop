@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=pCloud
+Exec=/home/b/.local/share/appimages/pcloud.AppImage
+Icon=pcloud
+Type=Application
+Categories=Network;FileTransfer;
+X-GNOME-Autostart-enabled=true
